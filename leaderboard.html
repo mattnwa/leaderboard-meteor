@@ -1,0 +1,18 @@
+<head>
+  <title>Leaderboard</title>
+</head>
+
+<body>
+  <h1>Leaderboard</h1>
+  {{> leaderboard}}
+</body>
+
+<template name="leaderboard">
+<ul>
+  {{#each player}}
+  <li class='player {{selectedClass}}'>{{name}}: {{score}}</li>
+  {{/each}}
+  <li><input type="button" id="increment" value="Give 5 points">
+  </li>
+</ul>
+</template>
