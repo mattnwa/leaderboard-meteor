@@ -3,7 +3,7 @@ PlayersList = new Meteor.Collection('players');
 
 if(Meteor.isClient) {
   Template.leaderboard.player = function() {
-return PlayersList.find();
+return PlayersList.find({}, {sort: {score: -1, name: 1}});
   }
 Template.leaderboard.selectedClass = function(){
   //return 'selected'
@@ -22,7 +22,7 @@ Template.leaderboard.selectedClass = function(){
     },
     'click #increment': function(){
     var selectedPlayer = Session.get('selectedPlayer');
-
+    PlayersList.update({_id: selectedPlayer}, {$inc: {score: 5}});
     }
   });
 
