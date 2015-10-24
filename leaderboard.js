@@ -3,8 +3,9 @@ PlayersList = new Meteor.Collection('players');
 //Create Client side js viewable by browser.
 if(Meteor.isClient) {
   Template.leaderboard.player = function() {
+    var currentUserId = Meteor.userId();
     //Create player and sort by points, then by name
-return PlayersList.find({}, {sort: {score: -1, name: 1}});
+return PlayersList.find({ createdBy: currentUserId}, {sort: {score: -1, name: 1}});
   }
 Template.leaderboard.selectedClass = function(){
   //return 'selected when clicked'
@@ -46,9 +47,11 @@ Template.addPlayerForm.events({
   'submit form': function(event, template) {
     event.preventDefault();
     var playerNameVar = template.find('#playerName').value;
+    var currentUserId = Meteor.userId();
     PlayersList.insert({
       name: playerNameVar,
-      score: 0
+      score: 0,
+      createdBy: currentUserId
     });
     console.log(event.type);
     console.log(playerNameVar);
