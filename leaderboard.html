@@ -3,20 +3,33 @@
 </head>
 
 <body>
-  <h1>Leaderboard</h1>
+  <h1>Rummy Leaderboard</h1>
+  <h2>Welcome to my Meteor.js Leaderboard Application. I have taken the initial tutorial offered in SitePoint.com and expanded a bit. I plan on integrating better Accounts-ui and Oauth
+    authentication in the next day or two. This application saves and registers players points and info in a database specific to each logged in user.</h2>
+<div class="container">
   {{> loginButtons}}
   {{> leaderboard}}
   {{> addPlayerForm}}
+</div>
 </body>
 
 <template name="leaderboard">
 <ul>
   {{#each player}}
+  <div class="card">
   <li class='player {{selectedClass}}'>{{name}}: {{score}}</li>
+</div>
   {{/each}}
-  <li><input type="button" id="increment" value="Give 5 points">
-    <input type="button" id="remove" value="Remove Player">
-    <input type="button" id="decrement" value="Take 5 points"></li>
+  <li> <div class="button raised green" id="increment">
+      <div class="center" fit>Give 5 points</div>
+    </div>
+    <div class="button raised purple" id="decrement">
+        <div class="center" fit>Lose 5 points</div>
+      </div>
+      <div class="button raised red" id="remove">
+          <div class="center" fit>Remove player</div>
+        </div>
+  </li>
   {{#if showSelectedPlayer}}
   <li>Selected Player: {{showSelectedPlayer.name}}</li>
   {{/if}}
@@ -29,7 +42,8 @@
   {{#if currentUser}}
   <form>
     <input type="text" id="playerName">
-    <input type="submit" value="Add Player">
+
+    <input class="button raised indigo" type="submit" value="Add Player">
   </form>
   {{/if}}
 </template>
