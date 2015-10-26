@@ -4,10 +4,10 @@
 
 <body>
   <h1>Rummy Leaderboard</h1>
-  <h2>Welcome to my Meteor.js Leaderboard Application. I have taken the initial tutorial offered in SitePoint.com and expanded a bit. I plan on integrating better Accounts-ui and Oauth
-    authentication in the next day or two. This application saves and registers players points and info in a database specific to each logged in user.</h2>
+  <h2>Welcome to my Meteor.js Leaderboard Application. <br> This application saves and registers players points and info in a database specific to each logged in user.<br></h2>
 <div class="container">
-  {{> loginButtons}}
+  {{> loginButtons align="right"}}
+  {{> templateUsers}}
   {{> leaderboard}}
   {{> addPlayerForm}}
 </div>
@@ -34,8 +34,6 @@
   <li>Selected Player: {{showSelectedPlayer.name}}</li>
   {{/if}}
 </ul>
-
-
 </template>
 
 <template name="addPlayerForm">
@@ -46,4 +44,21 @@
     <input class="button raised indigo" type="submit" value="Add Player">
   </form>
   {{/if}}
+</template>
+
+<template name="templateUsers">
+  {{#unless currentUser}}
+<li class="player">Anastasia: 75</li>
+<li class="player">Fred: 65</li>
+<li class="player">Aunt May: 50</li>
+<li class="player">Jonathan: 45</li>
+<li class="player">Matt: 25</li>
+<li class="player">Samantha: 10</li>
+<form>
+  <input size="28" type="text" placeholder="Must sign in to change leaderboard!" id="playerName">
+
+  <input class="button raised indigo" type="submit" value="Add Player" onclick="return confirm('You must log in to update Leaderboard')">
+</form>
+
+  {{/unless}}
 </template>

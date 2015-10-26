@@ -1,16 +1,33 @@
 body {
   text-align: center;
   list-style: none;
-
-  background-color: #00BCD4
+  background-image: url(tree.png);
+  background-repeat: repeat-x;
+  /*//background-color: 6E3E8;*/
 }
 ul {
   list-style: none;
   width: 50%;
     text-align: center;
     display: inline-block;
-
 }
+/*.player {
+  line-height: 2;
+  font-size: 30px;
+}*/
+
+.player {
+background-color: ;
+border: 1px dotted ;
+color: ;
+font-size: 14;
+font-family: sans-serif;
+font-style: normal;
+font-weight: ;
+padding: 3px;
+background-color: white;
+}
+
 .selected{
   background-color: #C5CAE9;
 }

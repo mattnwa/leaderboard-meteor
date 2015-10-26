@@ -92,7 +92,7 @@ Meteor.methods({
       score: 0,
       createdBy: currentUserId
     });
-    console.log(playerNameVar);
+    // console.log(playerNameVar);
   },
   'removePlayer': function(selectedPlayer) {
     PlayersList.remove(selectedPlayer);
