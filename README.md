@@ -1,5 +1,5 @@
 # Player Leaderboard built with the Meteor JavaScript framework.
-
+# - App is running at http://mattnwa-leaderboard.meteor.com/ - Check it out!
 Meteor is a cutting-edge framework that makes it easy to create real-time web applications with nothing but JavaScript. Built on top of Node.js, it’s a fantastic framework for beginner web developers, while also being powerful enough that you won’t find yourself reaching its limits anytime soon.
 
 
